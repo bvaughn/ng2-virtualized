@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "moduleResolution": "node"
+  },
+  "files": [
+    "typings/main.d.ts",
+    "ng2-virtualized.ts",
+    "./src/Grid/Grid.ts",
+    "./src/Grid/GridUtils.ts"
+  ]
+}

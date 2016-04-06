@@ -1,0 +1,21 @@
+.Grid {
+  overflow: auto;
+  font-size: 12px;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.GridCells {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.GridCell {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #eee;
+}

@@ -1,0 +1,17 @@
+<div
+  class="Grid"
+  [ngStyle]=getGridStyle()
+  (scroll)="onScroll($event)"
+>
+  <div
+    class="GridCells"
+    [ngStyle]=getGridCellsStyle()
+  >
+    <div
+      *ngFor="#data of visibleCellIndices"
+      class="GridCell"
+      [ngStyle]=getCellStyle(data)
+      [innerHTML]=renderCell(data)
+    ></div>
+  </div>
+</div>
