@@ -17,8 +17,8 @@ export default class Grid implements OnInit {
 
   visibleCellIndices
 
-  _columnMetadata
-  _rowMetadata
+  _columnMetadata = []
+  _rowMetadata = []
   _scrollLeft = 0
   _scrollTop = 0
 

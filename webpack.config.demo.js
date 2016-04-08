@@ -6,7 +6,10 @@ const webpack = require('webpack')
 module.exports = {
   devtool: 'source-map',
   entry: {
-    demo: './source/demo/Application'
+    demo: [
+      'reflect-metadata',
+      './source/demo/Application'
+    ]
   },
   output: {
     path: 'build',
@@ -22,6 +25,12 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: false,
+      // minify: false,
+      sourceMap: false
+      // uglify: false
     })
   ],
   module: {
@@ -46,6 +55,9 @@ module.exports = {
         loaders: ['style', 'css?importLoaders=1'],
         include: path.join(__dirname, 'styles.css')
       }
+    ],
+    noParse: [
+      /.*angular2\/bundles\/.*/
     ]
   },
   postcss: function () {

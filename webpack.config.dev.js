@@ -6,7 +6,10 @@ const webpack = require('webpack')
 module.exports = {
   devtool: 'eval',
   entry: {
-    demo: './source/demo/Application'
+    demo: [
+      'reflect-metadata',
+      './source/demo/Application'
+    ]
   },
   output: {
     path: 'build',
@@ -43,6 +46,9 @@ module.exports = {
         loaders: ['style', 'css?importLoaders=1'],
         include: path.join(__dirname, 'styles.css')
       }
+    ],
+    noParse: [
+      /.*angular2\/bundles\/.*/
     ]
   },
   postcss: function () {
