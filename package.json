@@ -56,14 +56,14 @@
   "typings": "./ng2-virtualized.d.ts",
   "homepage": "https://github.com/bvaughn/ng2-virtualized",
   "peerDependencies": {
-    "angular2": ">= 2.0.0-beta.10",
+    "angular2": ">= 2.0.0-beta.15",
     "es6-shim": ">= 0.33.3",
     "reflect-metadata": ">= 0.1.2",
     "rxjs": ">= 5.0.0-beta.2",
     "zone.js": ">= 0.6.4"
   },
   "devDependencies": {
-    "angular2": "2.0.0-beta.12",
+    "angular2": "2.0.0-beta.15",
     "autoprefixer": "^6.2.3",
     "babel-cli": "6.5.1",
     "babel-core": "^6.5.1",

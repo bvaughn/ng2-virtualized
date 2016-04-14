@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core'
 import {bootstrap} from 'angular2/platform/browser'
 import GridExample from '../Grid/Grid.example'
+import './Application.css'
 import '../../styles.css'
 
 @Component({

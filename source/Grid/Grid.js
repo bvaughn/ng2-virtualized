@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from 'angular2/core'
 import {getVisibleCellIndices, initCellMetadata} from './GridUtils'
 import template from './Grid.html'
 
+const IS_SCROLLING_TIMEOUT = 150
+
 @Component({
   selector: 'ng2-virtualized-grid',
   template
@@ -15,9 +17,11 @@ export default class Grid implements OnInit {
   @Input() rowSize = 0
   @Input() width = 0
 
+  isScrolling
   visibleCellIndices
 
   _columnMetadata = []
+  _disablePointerEventsTimeoutId
   _rowMetadata = []
   _scrollLeft = 0
   _scrollTop = 0
@@ -70,6 +74,7 @@ export default class Grid implements OnInit {
   onScroll($event:any) {
     this._scrollLeft = $event.target.scrollLeft
     this._scrollTop = $event.target.scrollTop
+    this._temporarilyDisablePointerEvents()
     this._updateVisibleCellIndices()
   }
 
@@ -82,6 +87,19 @@ export default class Grid implements OnInit {
         ${rendered}
       </div>
       `
+  }
+
+  _temporarilyDisablePointerEvents () {
+    if (this._disablePointerEventsTimeoutId) {
+      clearTimeout(this._disablePointerEventsTimeoutId)
+    }
+
+    this.isScrolling = true
+
+    this._disablePointerEventsTimeoutId = setTimeout(() => {
+      this._disablePointerEventsTimeoutId = null
+      this.isScrolling = false
+    }, IS_SCROLLING_TIMEOUT)
   }
 
   _updateVisibleCellIndices() {
